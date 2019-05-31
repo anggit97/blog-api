@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Subcategory;
 
 class Categories extends Model
 {
@@ -12,4 +13,8 @@ class Categories extends Model
         'foto',
         'description'
     ];
+    
+    public function subcategories(){
+        return $this->hasMany(Subcategory::class, 'id');
+    }
 }

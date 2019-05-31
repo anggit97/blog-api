@@ -27,3 +27,5 @@ Route::prefix('auth')->group(function(){
 Route::resource('categories', 'CategoryController');
 
 Route::resource('subcategories', 'SubcategoryController');
+
+Route::get('categor', 'CategorySubcategoryController@categorySubcategory');
