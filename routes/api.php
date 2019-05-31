@@ -23,3 +23,5 @@ Route::prefix('auth')->group(function(){
         Route::post('refresh', 'AuthController@refresh');    
     });
 });
+
+Route::resource('categories', 'CategoryController');
