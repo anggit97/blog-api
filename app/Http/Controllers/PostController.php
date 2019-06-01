@@ -20,6 +20,9 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::paginate(20);
+        foreach($posts as $post){
+            $post->foto = url('/images/'.$post->foto);
+        }
         return response()->json($posts);
     }
 
@@ -59,7 +62,7 @@ class PostController extends Controller
 
         $post = Post::create($validateData);
 
-        $post->foto = url('/public/'.$imageName);
+        $post->foto = url('/images/'.$imageName);
 
         return response()->json([
             'message' => 'Berhasil tambah post',
@@ -76,6 +79,7 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
+        $post->foto = url('/images/'.$post->foto);
         return response()->json($post);
     }
 
