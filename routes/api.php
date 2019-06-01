@@ -30,4 +30,6 @@ Route::resource('subcategories', 'SubcategoryController');
 
 Route::resource('tags', 'TagController');
 
+Route::resource('posts', 'PostController');
+
 Route::get('categor', 'CategorySubcategoryController@categorySubcategory');
