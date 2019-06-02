@@ -24,6 +24,18 @@ Route::prefix('auth')->group(function(){
     });
 });
 
+Route::middleware('auth:api')->group(function(){
+    
+    Route::prefix('profile')->group(function(){
+
+        Route::namespace('User')->group(function(){
+            Route::get('me', 'ProfileController@me');
+            Route::post('me/avatar', 'ProfileController@updateAvatar');
+        });
+    });
+});
+
+
 Route::resource('categories', 'CategoryController');
 
 Route::resource('subcategories', 'SubcategoryController');
